@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <title>Dashboard</title>
+</head>
+<body>
+    <body>
+    <div class="dashboard-card">
+        <form method="POST">
+            <h1>Text 2 Image</h1>
+
+            <div class="text-box">
+                <textarea name="prompt" placeholder="Describe the image you want to generate..." rows="3"></textarea>
+            </div>
+
+            <div class="radio-group">
+                <label><input type="radio" name="choice" value="anime" checked> ANIME</label>
+                <label><input type="radio" name="choice" value="cartoon"> CARTOON</label>
+                <label><input type="radio" name="choice" value="comic"> COMIC</label>            
+            </div>
+
+            <button type="submit">GENERATE IMAGE</button>
+        </form>
+
+        {% if image_url %}
+            <h3>Generated Result</h3>
+            <img src="{{ image_url }}" alt="Generated Image">
+            <br>
+            <a href="{{ image_url }}" download class="download-btn">Download Image</a>
+        {% endif %}
+
+        <a href="{{ url_for('logout') }}">
+            <button class="logout-btn">Logout</button>
+        </a>
+    </div>
+</body>
+</body>
+</html>
